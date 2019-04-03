@@ -9,19 +9,34 @@ bot = commands.Bot(command_prefix="a.")
 
 
 
-
 #PRINT THE DISCORD BOT'S NAME WHEN IT'S READY
 @bot.event
 async def on_ready():
-  print(bot.user.name)
+    print(f"{bot.user.name} is now running!")
 
-  
+
+
+	
 #A SIMPLE TEST COMMAND
 @bot.command(pass_context=True)
 async def hi(ctx):
-  await bot.say("Hello there"+" "+ctx.message.author.name)
+	"""
+	Sends Hi with the user of the user that used the command
+	"""
+	await bot.say(f"Hello there{ctx.message.author.display_name}")
+  
+
+
+@bot.command(pass_context=True,name='copy') -> "Hello there!!"
+async def _copy(ctx,*,msg):
+	"""
+	Repearts what ever the user tpyes after s.copy
+	"""
+	await bot.say(msg) #Send the messages
+
   
   
- 
-#YOU CAN USE os.environ TO HIDE YOUR BOT TOKEN: SAVE YOUR BOT TOKEN AS THE NAME YOU GAVE IN os.environ['name'] 
+  
+#IF YOU WISH TO HOST YOUR CODE PUBLICALLY HIDE YOUR TOKEN VIA METHOD BELOW
+#YOU CAN USE os.environ TO HIDE YOUR BOT TOKEN: SAVE YOUR BOT TOKEN AS THE NAME YOU GAVE IN os.environ['name'] ON HEROKU Config Vars
 bot.run(os.environ['BOT_TOKEN'])
