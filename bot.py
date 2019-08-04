@@ -18,7 +18,7 @@ async def on_ready():
 @bot.command()
 async def greet(msg,*users:discord.Member):
     #Can mention more than 1 user
-    await msg.send(f"Hi there {" ".join[user.name for user in users]}")
+    await msg.send(f"Hi there {' '.join[user.name for user in users]}")
 
 
 
