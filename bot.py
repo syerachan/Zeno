@@ -27,7 +27,7 @@ async def hi(ctx):
   
 
 
-@bot.command(pass_context=True,name='copy') -> "Hello there!!"
+@bot.command(pass_context=True,name='copy')
 async def _copy(ctx,*,msg):
 	"""
 	Repearts what ever the user tpyes after s.copy
