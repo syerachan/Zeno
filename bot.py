@@ -22,13 +22,9 @@ async def greet(msg,*users:discord.Member):
 
 
 
-@bot.command(aliases=['echo','copy','say'])
-async def repeat(msg,*,message=None):
-    if message == None:
-        await msg.send("Please enter a message to repeat")
-
-    else:
-        await msg.send(f"{msg.author.name}: {message}")
+@bot.command()
+async def greet(msg,user:discord.Member):
+    await msg.send(f"Hello there {user}")
   
 #IF YOU WISH TO HOST YOUR CODE PUBLICALLY HIDE YOUR TOKEN VIA METHOD BELOW
 #YOU CAN USE os.environ TO HIDE YOUR BOT TOKEN: SAVE YOUR BOT TOKEN AS THE NAME YOU GAVE IN os.environ['name'] ON HEROKU Config Vars
