@@ -36,25 +36,4 @@ async def _copy(ctx,*,msg):
 
 
 
-
-@client.event
-async def on_ready():
-    print(f'Logged on as {client.user}')
-
-
-
-
-async def statuschange():
-  await client.wait_until_ready()
-
-
-  while True:
-    await client.change_presence(activity=discord.Activity(name='+help', type=discord.ActivityType.streaming))
-
-    await asyncio.sleep(10)
-
-  
-  
-  
-client.loop.create_task(statuschange())
 bot.run(os.environ['BOT_TOKEN'])
