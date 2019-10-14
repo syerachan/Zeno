@@ -34,9 +34,27 @@ async def _copy(ctx,*,msg):
 	"""
 	await bot.say(msg) #Send the messages
 
+
+
+
+@client.event
+async def on_ready():
+    print(f'Logged on as {client.user}')
+
+
+
+
+async def statuschange():
+  await client.wait_until_ready()
+
+
+  while True:
+    await client.change_presence(activity=discord.Activity(name='+help', type=discord.ActivityType.streaming))
+
+    await asyncio.sleep(10)
+
   
   
   
-#IF YOU WISH TO HOST YOUR CODE PUBLICALLY HIDE YOUR TOKEN VIA METHOD BELOW
-#YOU CAN USE os.environ TO HIDE YOUR BOT TOKEN: SAVE YOUR BOT TOKEN AS THE NAME YOU GAVE IN os.environ['name'] ON HEROKU Config Vars
+client.loop.create_task(statuschange())
 bot.run(os.environ['BOT_TOKEN'])
